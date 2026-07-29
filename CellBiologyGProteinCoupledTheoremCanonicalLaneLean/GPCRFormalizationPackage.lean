@@ -1,0 +1,25 @@
+import HautevilleHouse.CellBiologyGProteinCoupledTheoremCanonicalLaneLean.GPCRActivationPackage
+import HautevilleHouse.CellBiologyGProteinCoupledTheoremCanonicalLaneLean.GPCRLigandBindingPackage
+import HautevilleHouse.CellBiologyGProteinCoupledTheoremCanonicalLaneLean.GPCRSignalingPackage
+import HautevilleHouse.CellBiologyGProteinCoupledTheoremCanonicalLaneLean.GPCRConformationalStatesPackage
+import HautevilleHouse.CellBiologyGProteinCoupledTheoremCanonicalLaneLean.GPCRDimerizationPackage
+
+namespace HautevilleHouse
+namespace CellBiologyGProteinCoupledTheoremCanonicalLaneLean
+
+structure GPCRFormalizationPackage where
+  activation : GPCRActivationPackage
+  ligandBinding : GPCRLigandBindingPackage
+  signaling : GPCRSignalingPackage
+  conformationalStates : GPCRConformationalStatesPackage
+  dimerization : GPCRDimerizationPackage
+
+def GPCRFormalizationClosed (P : GPCRFormalizationPackage) : Prop :=
+  GPCRActivationClosed P.activation ∧
+  GPCRLigandBindingClosed P.ligandBinding ∧
+  GPCRSignalingClosed P.signaling ∧
+  GPCRConformationalStatesClosed P.conformationalStates ∧
+  GPCRDimerizationClosed P.dimerization
+
+end CellBiologyGProteinCoupledTheoremCanonicalLaneLean
+end HautevilleHouse
